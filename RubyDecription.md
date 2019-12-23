@@ -189,3 +189,91 @@ In Ruby, we use ```@``` before a variable to signify that it’s an instance var
 Instance variables are similar to Class variables except that their values are local to specific instances of an object. For example if a class contains an instance variable called @total, if one instance of the object changes the current value of ```@total``` the change is local to only the object that made the change. Other objects of the same class have their own local copies of the variable which are independent of changes made in any other objects.
 Instance variables are declared in Ruby by prefixing the variable name with a single ```@``` sign:
 ```@total = 10```
+### --------------------------------------------------------------------------------------
+## Concepts
+
+### Classes
+A class is blueprint for making object, when you use it to make a object
+A class describe two things
+1.- what that object knows about itself (
+2.- what the object does 
+
+### Objects
+a strange thing in ruby is that everything is a object, a object is a fragment of code that you can execute on demant
+
+### inheritance
+in Ruby the inheritance is when anther class can use your methods and instances variables ```<``` 
+if one class has some functionality, classes that inherit from it can get that functionality automatically.
+1. - the class tha inherit (parent) is referred to as SuperClass
+2.- the class thar recieve that inherit is called subclass
+
+### Overriding
+method overriding refers to replacing a method of parent class in its subclass.
+The method definition in the subclass should have same signature as the method in the parent class
+for call  the method in the superclass too you can use super keyword
+-> super called without any argument i,e simply as super then the argument passed to subclass method will be passed as argument to parent class .
+
+-> super called with empty argument i,e as super() then no argument is passed to the parent method. It is useful if the parent method set some defaults and you want to stick to that . But, it will throw error, if the parent method expecting some arguments.
+
+-> super called with arguments i,e as super(a,b,c) then only the argument a,b,c will be passed to the parent method.
+
+### Mixins/Modules
+is a powerful way to group methods together and then share them only with particular classes that need them.
+
+a module starts with module keyword and the module name and ends with the keyword end, the modules can't create instances of modules (for instance myModule.new it is wrong)
+The mix is into the class with the keyword include ModuleName
+
+### Polymorphism
+
+
+### Arrays and hashes
+a hash is a collection where each value is accessed via a key 
+hash = {"key" => "value","anotherkey" => "value"}
+you accesse throw its key with [] example hash["key"]
+Whereas a array can use only integers as indexes, a hash can use any object as a key. That include numbers,string, and symbols.
+in other words an array can only use integers as indexes, but a hash can use any object as a key.
+the array's index is determined by its position within the array by square brackets and starts with the same e.i
+array = [1, 2, 3]
+
+### Blocks as parameters and lambdas
+the blocks as parameters most common are when you use the loop each all that inside to | are elements like this |elemente|
+anothe instances is when you pass block to a method my_method { |name, age| puts "#{name} is #{age} years old" } using the keyword yield
+
+- A lambda is a way to define a block & its parameters with some special syntax 
+to run the code inside it, you need to use the call method for that
+~~~
+say_something = -> { puts "This is a lambda" }
+say_something.call
+~~~
+lambda with arguments
+~~~
+times_two = ->(x) { x * 2 }
+times_two.call(10)
+~~~
+
+
+### Symbols
+a simbols always begins with a colon (:), a simbol can't be changed later, they are used to refer to anything whose name doesn't change 
+> . You don't have to pre-declare a symbol and they are guaranteed to be unique. There's no need to assign some kind of value to a symbol - Ruby takes care of that for you. Ruby also guarantees that no matter where it appears in your program, a particular symbol will have the same value.
+
+### Control structutre
+ruby uses the keyword end  to end signify the end of a body. e.g if .... end, while ...end
+ > Ruby can control the execution of code using Conditional branches. A conditional Branch takes the result of a test expression and executes a block of code depending whether the test expression is true or false. If the test expression evaluates to the constant false or nil, the test is false; otherwise, it is true. Note that the number zero is considered true, whereas many other programming languages consider it false.
+
+### Metaprogramming
+you can write code dinamically.
+
+### SOLID
+SOLID principles
+- S: single responsability principle
+every module o class should have just one responsabily, "Do one thing and do it well"
+
+- O: Open/Closed principle
+In programming, the open/closed principle states that software entities (classes, modules, functions, etc.) should be open for extensions, but closed for modification
+
+- L: Liskov substitution principle
+
+-I — Interface segregation principle
+
+- D - Dependency inversion principle
+
