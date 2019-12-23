@@ -1,10 +1,21 @@
 class Environment
   def variables
-    puts 'Enter the first number'
-    number_1 = gets.chomp
-    puts 'Enter the second number'
-    number_2 = gets.chomp
-    return number_1, number_2 
+    array_numbers = []
+    until array_numbers.length >= 2
+      puts 'Enter the number '
+      number_n = gets.chomp
+      array_numbers.push(number_n)
+    end
+      puts 'Do you want to add another number? y/n'
+      answer = gets.chomp
+      while answer == 'y'
+      puts 'Enter the number '
+      number_n = gets.chomp
+      array_numbers.push(number_n)
+      puts 'Do you want to add another number? y/n'
+      answer = gets.chomp
+      end
+    return array_numbers
   end
 end
 
@@ -30,18 +41,18 @@ class SingsOperations
 end
 
 class Operations 
-  def result_operation(numbers, operation_sing)
-    sum = 0 
-    numbers.each{ |num| sum = sum.send(operation_sing, num.to_i) }
-    puts "The result is #{-(sum)}"
+  def result_operation(array_numbers, operation_sing)
+    sum = array_numbers.delete_at(0).to_i
+    array_numbers.each{ |num| sum = sum.send(operation_sing, num.to_i) }
+    puts "The result is #{sum}"
   end
 end
 
 environment = Environment.new
-numbers = environment.variables
+array_numbers = environment.variables
 
 singsOfOperations = SingsOperations.new
 operation_sing = singsOfOperations.operators
 
 operation = Operations.new
-operation.result_operation(numbers, operation_sing)
+operation.result_operation(array_numbers, operation_sing)
